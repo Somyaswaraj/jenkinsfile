@@ -2,10 +2,17 @@ pipeline {
     agent any
 
     stages {
-        stage('code and build') {
+        stage('Print Even Numbers') {
             steps {
-               git 'https://github.com/ramyachetty/web-app.git'
-               sh 'mvn clean package'
+                script {
+                    def i = 20
+                    while (i <= 50) {
+                        if (i % 2 == 0) {
+                            echo "${i}"
+                        }
+                        i++
+                    }
+                }
             }
         }
     }
